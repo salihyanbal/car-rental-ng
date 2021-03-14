@@ -1,16 +1,5 @@
-<div *ngIf="!dataLoaded" class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
-</div>
-<table *ngIf="dataLoaded" class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Renk ismi</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let color of colors">
-        <td>{{color.id}}</td>
-        <td>{{color.name}}</td>
-    </tr>
-</table>
-
+<ul class="nav nav-tabs" style="margin-bottom: 20;">
+    <li class="nav-item" (click)="setCurrentColor(color)" *ngFor="let color of colors">
+        <button type="button" [class]="getCurrentColorClass(color)" href="#">{{color.name}}</button>
+    </li>
+</ul>

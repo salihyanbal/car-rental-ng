@@ -1,20 +1,27 @@
 <div *ngIf="!dataLoaded" class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded" class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Araba adı</th>
-            <th>Renk</th>
-            <th>Günlük fiyat</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let car of cars">
-        <td>{{car.carId}}</td>
-        <td>{{car.brandName}}</td>
-        <td>{{car.colorName}}</td>
-        <td>{{car.dailyPrice}} TL</td>
-    </tr>
-</table>
+<div
+    class="d-flex flex-wrap justify-content-center justify-content-xl-start"
+    style="gap: 0.75em; padding: 0;margin-top: 20px;"
+    >
+    <div *ngFor="let car of cars" class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{car.brandName}}</h5>
+          <p class="card-text">{{car.}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{car.colorName}}</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+      
+
+</div>
 
