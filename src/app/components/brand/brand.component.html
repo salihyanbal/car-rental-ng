@@ -1,5 +1,9 @@
 <ul class="list-group">
     <li
+    [class]="getAllBrandClass()"
+    (click)="clearCurrentBrand()"
+    >Tüm markalar</li>
+    <li
     (click)="setCurrentBrand(brand)" 
     *ngFor="let brand of brands" 
     [class]="getCurrentBrandClass(brand)"

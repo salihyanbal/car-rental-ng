@@ -1,4 +1,7 @@
 <ul class="nav nav-tabs" style="margin-bottom: 20;">
+    <li class="nav-item" (click)="clearCurrentColor()">
+        <button type="button" [class]="getAllColorClass()" href="#">Tüm renkler</button>
+    </li>
     <li class="nav-item" (click)="setCurrentColor(color)" *ngFor="let color of colors">
         <button type="button" [class]="getCurrentColorClass(color)" href="#">{{color.name}}</button>
     </li>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/models/carDetail';
+import { CarImage } from 'src/app/models/carImage';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -11,9 +13,11 @@ import { CarService } from 'src/app/services/car.service';
 export class CarComponent implements OnInit {
 
   cars: CarDetail[] = [];
+  carImages: CarImage[] = [];
   dataLoaded = false;
   constructor(
     private carService: CarService,
+    private carImageService: CarImageService,
     private activatedRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -27,14 +31,33 @@ export class CarComponent implements OnInit {
       }else{
         this.getAllCarDetails();
       }
-      
     })
   }
 
+
   getAllCarDetails() {
+    console.log("calisti detail")
     this.carService.getAllCarDetails().subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
+      this.setPreviewImages(this.cars)
+    });
+    
+    console.log("araba resmi sayisi:" + this.cars.length)
+  }
+
+  getCarImages(){
+    this.carImageService.getCarImages().subscribe((response) => {
+      this.carImages = response.data;
+    });
+  }
+
+  setPreviewImages(arabalar:CarDetail[]){
+    console.log(this.cars.length)
+    arabalar.forEach(car => {
+      this.carImageService.getCarImageByCarId(car.carId).subscribe((response) => {
+        car.imagePath = "https://localhost:5001/" + response.data[0].imagePath;
+      });
     });
   }
 
@@ -42,6 +65,7 @@ export class CarComponent implements OnInit {
     this.carService.getCarDetails(brandId,colorId).subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
+      this.setPreviewImages(this.cars)
     });
   }
 
@@ -49,6 +73,7 @@ export class CarComponent implements OnInit {
     this.carService.getCarDetailsByBrand(brandId).subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
+      this.setPreviewImages(this.cars)
     });
   }
 
@@ -56,7 +81,10 @@ export class CarComponent implements OnInit {
     this.carService.getCarDetailsByBrand(colorId).subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
+      this.setPreviewImages(this.cars)
     });
   }
+
+
 
 }

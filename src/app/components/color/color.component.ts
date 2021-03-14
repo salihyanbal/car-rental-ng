@@ -42,4 +42,17 @@ export class ColorComponent implements OnInit {
     }
   }
 
+  getAllColorClass(){
+    if(!this.currentColor){
+      return "list-group-item active";
+    }else{
+      return "list-group-item";
+    }
+  }
+
+  clearCurrentColor(){
+    this.currentColor = null;
+    this.router.navigate(['cars'], { queryParams: { colorId: undefined}, queryParamsHandling: 'merge', relativeTo: this.route});
+  }
+
 }
