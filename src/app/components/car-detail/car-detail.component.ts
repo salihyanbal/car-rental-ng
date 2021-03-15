@@ -20,8 +20,7 @@ export class CarDetailComponent implements OnInit {
   imageUrl = "https://localhost:5001/";
   constructor(private carService: CarService,
     private carImageService: CarImageService, 
-    private activatedRoute:ActivatedRoute,
-    private config : NgbCarouselConfig) {}
+    private activatedRoute:ActivatedRoute,) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -30,8 +29,6 @@ export class CarDetailComponent implements OnInit {
         this.getCarImages(params["carId"])
       }
     })
-
-    this.setCarouselConfigs();
   }
 
   getCarDetail(carId:number) {
@@ -45,11 +42,6 @@ export class CarDetailComponent implements OnInit {
     this.carImageService.getCarImageByCarId(carId).subscribe((response) => {
       this.carImages = response.data;
     });
-  }
-
-  setCarouselConfigs(){
-    this.config.showNavigationArrows = true;
-    this.config.showNavigationIndicators = true;
   }
 
 }
