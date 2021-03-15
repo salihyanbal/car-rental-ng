@@ -15,8 +15,7 @@ export class BrandComponent implements OnInit {
   constructor(
     private brandService: BrandService,
     private router: Router,
-    private route: ActivatedRoute,
-    private location: Location) {}
+    private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.getBrands();
@@ -31,7 +30,7 @@ export class BrandComponent implements OnInit {
 
   setCurrentBrand(brand: Brand) {
     this.currentBrand = brand;
-    this.router.navigate(['cars/brand/' + brand.id], { queryParams: { brandId: this.currentBrand.id }, queryParamsHandling: 'merge', relativeTo: this.route});
+    this.router.navigate(['cars/'], { queryParams: { brandId: this.currentBrand.id }, queryParamsHandling: 'merge', relativeTo: this.route});
   }
 
   getCurrentBrandClass(brand: Brand) {

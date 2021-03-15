@@ -24,7 +24,8 @@ export class ColorComponent implements OnInit {
 
   setCurrentColor(color: Color) {
     this.currentColor = color;
-    this.router.navigate(['cars/color/' + color.id], { queryParams: { colorId: this.currentColor.id }, queryParamsHandling: 'merge', relativeTo: this.route});
+    this.router.navigate([], { queryParams: { colorId: this.currentColor.id}, queryParamsHandling: 'merge', relativeTo: this.route});
+    
   }
 
   getColors() {
@@ -52,7 +53,7 @@ export class ColorComponent implements OnInit {
 
   clearCurrentColor(){
     this.currentColor = null;
-    this.router.navigate(['cars'], { queryParams: { colorId: undefined}, queryParamsHandling: 'merge', relativeTo: this.route});
+    this.router.navigate([], { queryParams: { colorId: undefined}, queryParamsHandling: 'merge', relativeTo: this.route});
   }
 
 }

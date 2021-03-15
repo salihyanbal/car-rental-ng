@@ -53,7 +53,6 @@ export class CarComponent implements OnInit {
   }
 
   setPreviewImages(arabalar:CarDetail[]){
-    console.log(this.cars.length)
     arabalar.forEach(car => {
       this.carImageService.getCarImageByCarId(car.carId).subscribe((response) => {
         car.previevImagePath = "https://localhost:5001/" + response.data[0].imagePath;
