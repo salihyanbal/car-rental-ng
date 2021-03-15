@@ -6,22 +6,20 @@
     style="gap: 0.75em; padding: 0;margin-top: 20px;"
     >
     <div *ngFor="let car of cars" class="card" style="width: 18rem;">
-        <img src="{{car.imagePath}}" class="card-img-top" alt="{{car.imagePath}}">
+      <div class="d-flex" style="height: 45%">
+        <img src="{{car.previevImagePath}}" class="card-img-top" alt="{{car.previevImagePath}}">
+      </div>
         <div class="card-body">
           <h5 class="card-title text-center">{{car.carName}}</h5>
           <p class="card-text text-center">{{car.description}}</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item text-center">{{car.carName}}</li>
+          <li class="list-group-item text-center">{{car.brandName}}</li>
           <li class="list-group-item text-center">{{car.colorName}}</li>
           <li class="list-group-item text-center">{{car.dailyPrice}} TRY</li>
         </ul>
         <div class="card-body d-grid gap-2 col-6 mx-auto">
-          <button type="button" class="btn btn-dark text-center">Ayrıntılar</button>
-          
+          <button type="button" routerLink = "/cardetails/{{car.carId}}" class="btn btn-dark text-center">Ayrıntılar</button>
         </div>
       </div>
-      
-
 </div>
-

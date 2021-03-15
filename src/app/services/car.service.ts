@@ -20,20 +20,26 @@ export class CarService {
   }
 
   getCarDetailsByBrand(brandId:number){
-    let newPath = this.apiUrl + "cars/getcardetailsbybrand?brandId=" + brandId;
+    let newPath = this.apiUrl + "cars/getcarsdetailsbybrand?brandId=" + brandId;
     return this.httpClient
       .get<ListResponseModel<CarDetail>>(newPath);
       
   }
 
   getCarDetailsByColor(colorId:number){
-    let newPath = this.apiUrl + "cars/getcardetailsbybrand?brandId=" + colorId;
+    let newPath = this.apiUrl + "cars/getcarsdetailsbybrand?brandId=" + colorId;
     return this.httpClient
       .get<ListResponseModel<CarDetail>>(newPath);
   }
 
   getCarDetails(brandId:number, colorId:number){
-    let newPath = this.apiUrl + "cars/getcardetails?brandId=" + brandId + "&colorId=" + colorId;
+    let newPath = this.apiUrl + "cars/getcarsdetails?brandId=" + brandId + "&colorId=" + colorId;
+    return this.httpClient
+      .get<ListResponseModel<CarDetail>>(newPath);
+  }
+
+  getCarDetailsByCarId(carId:number){
+    let newPath = this.apiUrl + "cars/getcardetailsbycarid?carid=" + carId;
     return this.httpClient
       .get<ListResponseModel<CarDetail>>(newPath);
   }

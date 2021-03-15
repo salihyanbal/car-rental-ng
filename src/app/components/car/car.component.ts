@@ -56,7 +56,7 @@ export class CarComponent implements OnInit {
     console.log(this.cars.length)
     arabalar.forEach(car => {
       this.carImageService.getCarImageByCarId(car.carId).subscribe((response) => {
-        car.imagePath = "https://localhost:5001/" + response.data[0].imagePath;
+        car.previevImagePath = "https://localhost:5001/" + response.data[0].imagePath;
       });
     });
   }
