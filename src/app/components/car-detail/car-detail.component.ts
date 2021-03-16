@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CarDetail } from 'src/app/models/carDetail';
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
@@ -16,6 +15,7 @@ export class CarDetailComponent implements OnInit {
   carImages: CarImage[] = [];
   carImagePaths: string[] = [];
   car: CarDetail;
+  // currentSlideId:number = 1;
   dataLoaded = false;
   imageUrl = "https://localhost:5001/";
   constructor(private carService: CarService,
@@ -43,5 +43,15 @@ export class CarDetailComponent implements OnInit {
       this.carImages = response.data;
     });
   }
+
+  // nextSlide(){
+  //   if(this.currentSlideId<this.carImages.length-1)
+  //     this.currentSlideId++;
+  // }
+
+  // previousSlide(){
+  //   if(this.currentSlideId>0)
+  //     this.currentSlideId--;
+  // }
 
 }
