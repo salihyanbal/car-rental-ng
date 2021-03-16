@@ -36,14 +36,11 @@ export class CarComponent implements OnInit {
 
 
   getAllCarDetails() {
-    console.log("calisti detail")
     this.carService.getAllCarDetails().subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
       this.setPreviewImages(this.cars)
     });
-    
-    console.log("araba resmi sayisi:" + this.cars.length)
   }
 
   getCarImages(){
@@ -55,7 +52,7 @@ export class CarComponent implements OnInit {
   setPreviewImages(arabalar:CarDetail[]){
     arabalar.forEach(car => {
       this.carImageService.getCarImageByCarId(car.carId).subscribe((response) => {
-        car.previevImagePath = "https://localhost:5001/" + response.data[0].imagePath;
+        car.previewImagePath = "https://localhost:5001/" + response.data[0].imagePath;
       });
     });
   }
@@ -77,9 +74,10 @@ export class CarComponent implements OnInit {
   }
 
   getCarDetailsByColor(colorId:number){
-    this.carService.getCarDetailsByBrand(colorId).subscribe((response) => {
+    this.carService.getCarDetailsByColor(colorId).subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
+      console.log(this.cars)
       this.setPreviewImages(this.cars)
     });
   }

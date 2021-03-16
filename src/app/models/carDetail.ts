@@ -5,5 +5,5 @@ export interface CarDetail{
     description:string;
     colorName:string;
     dailyPrice:number;
-    previevImagePath:string;
+    previewImagePath:string;
 }
