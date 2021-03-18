@@ -10,7 +10,8 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class ColorComponent implements OnInit {
 
-  currentColor: Color = {id:0,name:""}
+  filterColorText:string;
+  currentColor: Color;
   colors: Color[] = [];
   dataLoaded = false;
   constructor(
@@ -22,10 +23,17 @@ export class ColorComponent implements OnInit {
     this.getColors();
   }
 
-  setCurrentColor(color: Color) {
-    this.currentColor = color;
+  setCurrentColor() {
     this.router.navigate([], { queryParams: { colorId: this.currentColor.id}, queryParamsHandling: 'merge', relativeTo: this.route});
     
+  }
+
+  setQueryParams(color:Color){
+    if(color){
+      this.setCurrentColor()
+    }else{
+      this.clearCurrentColor()
+    }
   }
 
   getColors() {
@@ -35,24 +43,24 @@ export class ColorComponent implements OnInit {
     });
   }
 
-  getCurrentColorClass(color: Color) {
+  isCurrentColor(color: Color) {
     if (color == this.currentColor) {
-      return 'list-group-item active';
+      return true
     } else {
-      return 'list-group-item';
+      return false
     }
   }
 
-  getAllColorClass(){
+  isAllColorSelected(){
     if(!this.currentColor){
-      return "list-group-item active";
+      return true
     }else{
-      return "list-group-item";
+      return false
     }
   }
 
   clearCurrentColor(){
-    this.currentColor = null;
+    this.currentColor = undefined;
     this.router.navigate([], { queryParams: { colorId: undefined}, queryParamsHandling: 'merge', relativeTo: this.route});
   }
 

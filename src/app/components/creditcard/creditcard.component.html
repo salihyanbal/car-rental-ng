@@ -1,0 +1,15 @@
+<div class="col-md-7 mx-auto">
+    <div class="card-body" style="background-color: whitesmoke; position: relative;">
+      <h5 class="card-title">Kredi kartı ile satın alma</h5>
+      <input type="text" [(ngModel)]="nameOnTheCard" class="form-control" id="nameText" 
+      placeholder="Kartın üzerindeki isim" style="margin-top: 20px;">
+      <input type="text" [(ngModel)]="cardNumber" class="form-control" id="numberText" 
+      placeholder="Kart numarası" style="margin-top: 20px;">
+      <input type="text" [(ngModel)]="cardCvv" class="form-control" id="cvvText" 
+      placeholder="Cvv" style="margin-top: 20px;">
+      <button type="button" class="btn btn-success" style="position:absolute; bottom:20px; right:20px;" (click)="rentACar()">Kirala</button>
+      <p style="position:absolute; bottom:20px; left:20px;">{{rental.totalRentPrice | currency: "TRY":"symbol-narrow":"1.2-2"}}</p>
+      <br><br>
+      <p> </p>
+    </div>
+</div>

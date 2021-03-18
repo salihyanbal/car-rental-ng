@@ -9,6 +9,7 @@ import { Location } from '@angular/common'
   styleUrls: ['./brand.component.css'],
 })
 export class BrandComponent implements OnInit {
+  filterBrandText: string;
   brands: Brand[] = [];
   currentBrand?: Brand;
   dataLoaded = false;
@@ -28,29 +29,36 @@ export class BrandComponent implements OnInit {
     });
   }
 
-  setCurrentBrand(brand: Brand) {
-    this.currentBrand = brand;
-    this.router.navigate(['cars/'], { queryParams: { brandId: this.currentBrand.id }, queryParamsHandling: 'merge', relativeTo: this.route});
-  }
-
-  getCurrentBrandClass(brand: Brand) {
-    if (brand == this.currentBrand) {
-      return 'list-group-item active';
-    } else {
-      return 'list-group-item';
+  setQueryParams(brand:Brand){
+    if(brand){
+      this.setCurrentBrand()
+    }else{
+      this.clearCurrentBrand()
     }
   }
 
-  getAllBrandClass(){
+  setCurrentBrand() {
+    this.router.navigate(['cars/'], { queryParams: { brandId: this.currentBrand.id }, queryParamsHandling: 'merge', relativeTo: this.route});
+  }
+
+  isCurrentBrand(brand: Brand) {
+    if (brand == this.currentBrand) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  isAllBrandSelected(){
     if(!this.currentBrand){
-      return "list-group-item active";
+      return true;
     }else{
-      return "list-group-item";
+      return false;
     }
   }
 
   clearCurrentBrand(){
-    this.currentBrand = null;
+    this.currentBrand = undefined;
     this.router.navigate(['cars/'], { queryParams: { brandId: undefined }, queryParamsHandling: 'merge', relativeTo: this.route});
   }
 }

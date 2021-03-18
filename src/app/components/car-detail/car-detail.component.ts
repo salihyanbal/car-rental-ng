@@ -15,12 +15,11 @@ export class CarDetailComponent implements OnInit {
   carImages: CarImage[] = [];
   carImagePaths: string[] = [];
   car: CarDetail;
-  // currentSlideId:number = 1;
   dataLoaded = false;
   imageUrl = "https://localhost:5001/";
   constructor(private carService: CarService,
     private carImageService: CarImageService, 
-    private activatedRoute:ActivatedRoute,) {}
+    private activatedRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -43,15 +42,5 @@ export class CarDetailComponent implements OnInit {
       this.carImages = response.data;
     });
   }
-
-  // nextSlide(){
-  //   if(this.currentSlideId<this.carImages.length-1)
-  //     this.currentSlideId++;
-  // }
-
-  // previousSlide(){
-  //   if(this.currentSlideId>0)
-  //     this.currentSlideId--;
-  // }
 
 }

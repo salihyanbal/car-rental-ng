@@ -12,6 +12,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarComponent implements OnInit {
 
+  filterCarText:string;
   cars: CarDetail[] = [];
   carImages: CarImage[] = [];
   dataLoaded = false;
@@ -49,8 +50,8 @@ export class CarComponent implements OnInit {
     });
   }
 
-  setPreviewImages(arabalar:CarDetail[]){
-    arabalar.forEach(car => {
+  setPreviewImages(cars:CarDetail[]){
+    cars.forEach(car => {
       this.carImageService.getCarImageByCarId(car.carId).subscribe((response) => {
         car.previewImagePath = "https://localhost:5001/" + response.data[0].imagePath;
       });
@@ -77,11 +78,9 @@ export class CarComponent implements OnInit {
     this.carService.getCarDetailsByColor(colorId).subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
-      console.log(this.cars)
       this.setPreviewImages(this.cars)
     });
   }
-
 
 
 }

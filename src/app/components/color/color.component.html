@@ -1,8 +1,17 @@
-<ul class="nav nav-tabs" style="margin-bottom: 20;">
+<!-- <ul class="nav nav-tabs" style="margin-bottom: 20;">
     <li class="nav-item" (click)="clearCurrentColor()">
         <button type="button" [class]="getAllColorClass()" href="#">Tüm renkler</button>
     </li>
     <li class="nav-item" (click)="setCurrentColor(color)" *ngFor="let color of colors">
         <button type="button" [class]="getCurrentColorClass(color)" href="#">{{color.name}}</button>
     </li>
-</ul>
+</ul> -->
+
+<div class="mb-3">
+    <input type="text" [(ngModel)]="filterColorText" class="form-control" id="filterColorText" 
+    placeholder="Renk giriniz">
+</div>
+<select [(ngModel)]="currentColor" class="form-select" (change)="setQueryParams(currentColor)" aria-label="Default select example">
+    <option [selected]="isAllColorSelected()" [ngValue]=undefined>Tüm renkler</option>
+    <option [selected]="isCurrentColor(color)" *ngFor="let color of colors | colorFilter:filterColorText; index as i" [ngValue]="color">{{color.name}}</option>
+</select>

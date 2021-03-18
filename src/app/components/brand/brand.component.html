@@ -1,11 +1,8 @@
-<ul class="list-group">
-    <li
-    [class]="getAllBrandClass()"
-    (click)="clearCurrentBrand()"
-    >Tüm markalar</li>
-    <li
-    (click)="setCurrentBrand(brand)" 
-    *ngFor="let brand of brands" 
-    [class]="getCurrentBrandClass(brand)"
-    >{{brand.name}}</li>
-</ul>
+<div class="mb-3">
+    <input type="text" [(ngModel)]="filterBrandText" class="form-control" id="filterBrandText" 
+    placeholder="Marka giriniz">
+</div>
+<select class="form-select" [(ngModel)]="currentBrand" #brandSelection (change)="setQueryParams(currentBrand)" aria-label="Default select example">
+    <option [selected]="isAllBrandSelected()" [ngValue]=undefined>Tüm markalar</option>
+    <option [selected]="isCurrentBrand(brand)" *ngFor="let brand of brands | brandFilter:filterBrandText; index as i" [ngValue]="brand">{{brand.name}}</option>
+</select>
