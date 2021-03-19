@@ -40,6 +40,7 @@ export class CreditCardComponent implements OnInit {
       this.fakeCard.moneyInTheCard = this.fakeCard.moneyInTheCard - this.rental.totalRentPrice
       this.updateCard(fakeCard)
       this.rentalService.addRental(this.rental)
+      this.toastrService.success("Arabayı kiraladınız","Işlem başarılı")
     }else{
       this.toastrService.error("Bankanız bilgilerinizi onaylamadı","Kart bulunamadı")
     }
