@@ -1,15 +1,56 @@
-<div class="col-md-7 mx-auto">
-    <div class="card-body" style="background-color: whitesmoke; position: relative;">
-      <h5 class="card-title">Kredi kartı ile satın alma</h5>
-      <input type="text" [(ngModel)]="nameOnTheCard" class="form-control" id="nameText" 
-      placeholder="Kartın üzerindeki isim" style="margin-top: 20px;">
-      <input type="text" [(ngModel)]="cardNumber" class="form-control" id="numberText" 
-      placeholder="Kart numarası" style="margin-top: 20px;">
-      <input type="text" [(ngModel)]="cardCvv" class="form-control" id="cvvText" 
-      placeholder="Cvv" style="margin-top: 20px;">
-      <button type="button" class="btn btn-success" style="position:absolute; bottom:20px; right:20px;" (click)="rentACar()">Kirala</button>
-      <p style="position:absolute; bottom:20px; left:20px;">{{rental.totalRentPrice | currency: "TRY":"symbol-narrow":"1.2-2"}}</p>
-      <br><br>
-      <p> </p>
+<button style="width: 100%;" data-bs-toggle="modal" data-bs-target="#creditCardModal" type="button" class="btn btn-dark text-center" id="openModal" style="display: none;">Kirala</button>
+
+<div class="modal fade" id="creditCardModal" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="creditCardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="creditCardModalLabel">{{rental.totalRentPrice}} TL | Kiralama</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="icons">
+          <img src="https://img.icons8.com/color/48/000000/visa.png" />
+          <img
+            src="https://img.icons8.com/color/48/000000/mastercard-logo.png"
+          />
+          <img src="https://img.icons8.com/color/48/000000/maestro.png" />
+      </div>
+      <div class="mb-3 row">
+          <div class="col-md-4">
+              <label for="cardNumber" class="form-label">Kredi Kartı Numaranızı Giriniz: </label>
+          </div>
+          <div class="col-md-8">
+              <input [(ngModel)]="cardNumber" type="text" class="form-control" id="cardNumber" placeholder="örn: 8109771495247556">
+          </div>
+      </div>
+      <div class="mb-6 row">
+          <div class="col-md-4">
+              <label for="firstName" class="form-label">Kart'ın üzerindeki isim: </label>
+          </div>
+          <div class="col-md-8">
+              <input [(ngModel)]="nameOnTheCard" type="text" class="form-control" id="firstName" placeholder="örn: Mehmet">
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="mb-3">
+                  <label for="cvv" class="form-label">Güvenlik kodu: </label>
+                  <input [(ngModel)]="cardCvv" type="text" class="form-control" id="cvv" placeholder="örn: 123">
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="mb-3">
+                  <label for="expirationDate" class="form-label">Son Kullanım Tarihi: </label>
+                  <input [(ngModel)]="expirationDate" type="text" class="form-control" id="expirationDate" placeholder="örn: 20/27">
+              </div>   
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+        <button (click)="rentACar()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Ödeme yap</button>
+      </div>
     </div>
+  </div>
 </div>
+

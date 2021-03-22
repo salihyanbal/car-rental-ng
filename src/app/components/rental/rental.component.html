@@ -1,52 +1,50 @@
-  <div class="card mb-3" style="max-width: 1024px; margin-top: 20px;">
-    <div class="row g-0">
-      <div class="col-md-5">
-        <table *ngIf="car" class="table table-striped mt-2">
-            <tbody>
-              <tr>
-                <th scope="row">Marka</th>
-                <td>{{ car.brandName }}</td>
-              </tr>
-              <tr>
-                <th scope="row">Model</th>
-                <td>{{ car.carName }}</td>
-              </tr>
-              <tr>
-                <th scope="row">Renk</th>
-                <td>{{ car.colorName }}</td>
-              </tr>
-              <tr>
-                <th scope="row">Fiyat</th>
-                <td>
-                  {{
-                    car.dailyPrice | currency: "TRY":"symbol-narrow":"1.2-2"
-                  }}/Gunluk
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">Model Yılı</th>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row">Aciklama</th>
-                <td>{{ car.description }}</td>
-              </tr>
-            </tbody>
-          </table>
+<button style="width: 100%;" *ngIf="!rentable" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-dark text-center">Kirala</button>
+<div style="margin-top: 10px;" *ngIf="rentable" class="alert alert-danger">
+  Bu araç zaten kiralanmış
+</div>
+<div *ngIf="car" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{car.carName}} | {{car.brandName}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="col-md-7" style="position: relative;">
-        <div class="card-body">
-            <form class="list-group-item active">
-                <label>Başlangıç tarihi</label><label style="margin-left: 95px;">Bitiş tarihi</label>
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group me-5" role="group" aria-label="First group"><input type="date" (change)="calculatePrice()" [(ngModel)]="startDate" [ngModelOptions]="{standalone: true}"></div>
-                    <div class="btn-group me-5" role="group" aria-label="First group"><input type="date" (change)="calculatePrice()" [(ngModel)]="endDate" [ngModelOptions]="{standalone: true}"></div>
-                </div>
-                <br><br>
-                <div><p *ngIf="endDate && startDate">Toplam ücret: {{rentPrice | currency:"TRY":"symbol-narrow":"1.2-2"}}</p></div>
-            </form>
+      <div class="modal-body">
+        <div class="daily-price">
+          <div class="mb-3 row">
+            <div class="col-md-3">
+              <label for="daily-price" class="form-label">Günlük Ücret:</label>
+            </div>
+            <div class="col-md-9">
+              <input [value]="car.dailyPrice | currency" disabled="disabled" type="text" class="form-control" id="daily-price" >
+            </div>
+          </div>
         </div>
-          <button *ngIf="endDate && startDate && rentPrice>0" (click)="addRental()" type="button" class="btn btn-success" style="position:absolute; bottom:20px; right:20px;">Kirala</button>
+        <div class="rent-date">
+          <div class="mb-3 row">
+            <div class="col-md-3">
+              <label for="rent-date" class="form-label">Başlangıç:</label>
+            </div>
+            <div class="col-md-9">
+              <input  min="{{minDate}}" (change)="controlEndDate()" [(ngModel)]="startDate" type="date" class="form-control" id="rent-start-date" placeholder="Bir gün seçiniz.">
+            </div>
+          </div>
+        </div>
+        <div class="return-date">
+          <div class="mb-3 row">
+            <div class="col-md-3">
+              <label for="return-date" class="form-label">Bitiş:</label>
+            </div>
+            <div class="col-md-9">
+              <input [disabled]='!startDate' min="{{startDate}}" max="{{maxDate}}" [(ngModel)]="endDate" (change)="setRentable()" type="date" class="form-control" id="rent-end-date" placeholder="Bir gün seçiniz.">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+        <button [disabled]="!(startDate && endDate)" (click)="addRental()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Kirala</button>
       </div>
     </div>
   </div>
+</div>

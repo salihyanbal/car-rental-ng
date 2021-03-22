@@ -20,6 +20,7 @@ import { RentalComponent } from './components/rental/rental.component';
 import { CreditCardComponent } from './components/creditcard/creditcard.component';
 
 import { ToastrModule } from 'ngx-toastr'
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -48,7 +49,9 @@ import { ToastrModule } from 'ngx-toastr'
     }),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

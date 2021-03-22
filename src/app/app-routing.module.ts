@@ -8,9 +8,6 @@ import { RentalComponent } from './components/rental/rental.component';
 const routes: Routes = [
   {path:"", component:CarComponent},
   {path:"cars", component:CarComponent},
-  {path:"cars/brand/:brandId", component:CarComponent},
-  {path:"cars/color/:colorId", component:CarComponent},
-  {path:"cars/brand/:brandId/color/:colorId", component:CarComponent},
   {path:"cardetails/:carId", component:CarDetailComponent},
   {path:"rental/:carId", component:RentalComponent},
   {path:"creditcard/:rental", component:CreditCardComponent}

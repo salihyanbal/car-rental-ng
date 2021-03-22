@@ -13,34 +13,45 @@ export class CarService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllCarDetails():Observable<ListResponseModel<CarDetail>> {
-    let newPath = this.apiUrl + "cars/getcarsdetails"
+  getCarsDetails(brandId?:number,colorId?:number,carId?:number):Observable<ListResponseModel<CarDetail>> {
+    let newPath = this.apiUrl + "cars/getcarsdetails?"
+    console.log(carId)
+    if(brandId){
+      newPath += "brandid=" + brandId + "&"
+    }
+    if(colorId){
+      newPath += "colorid=" + colorId + "&"
+    }
+    if(carId){
+      newPath += "id=" + carId + "&"
+    }
+    console.log(newPath)
     return this.httpClient
       .get<ListResponseModel<CarDetail>>(newPath);
   }
 
-  getCarDetailsByBrand(brandId:number){
-    let newPath = this.apiUrl + "cars/getcarsdetails?brandId=" + brandId;
-    return this.httpClient
-      .get<ListResponseModel<CarDetail>>(newPath);
+  // getCarDetailsByBrand(brandId:number){
+  //   let newPath = this.apiUrl + "cars/getcarsdetails?brandId=" + brandId;
+  //   return this.httpClient
+  //     .get<ListResponseModel<CarDetail>>(newPath);
       
-  }
+  // }
 
-  getCarDetailsByColor(colorId:number){
-    let newPath = this.apiUrl + "cars/getcarsdetails?colorId=" + colorId;
-    return this.httpClient
-      .get<ListResponseModel<CarDetail>>(newPath);
-  }
+  // getCarDetailsByColor(colorId:number){
+  //   let newPath = this.apiUrl + "cars/getcarsdetails?colorId=" + colorId;
+  //   return this.httpClient
+  //     .get<ListResponseModel<CarDetail>>(newPath);
+  // }
 
-  getCarDetails(brandId:number, colorId:number){
-    let newPath = this.apiUrl + "cars/getcarsdetails?brandId=" + brandId + "&colorId=" + colorId;
-    return this.httpClient
-      .get<ListResponseModel<CarDetail>>(newPath);
-  }
+  // getCarDetails(brandId:number, colorId:number){
+  //   let newPath = this.apiUrl + "cars/getcarsdetails?brandId=" + brandId + "&colorId=" + colorId;
+  //   return this.httpClient
+  //     .get<ListResponseModel<CarDetail>>(newPath);
+  // }
 
-  getCarDetailsByCarId(carId:number){
-    let newPath = this.apiUrl + "cars/getcarsdetails?id=" + carId;
-    return this.httpClient
-      .get<ListResponseModel<CarDetail>>(newPath);
-  }
+  // getCarDetailsByCarId(carId:number){
+  //   let newPath = this.apiUrl + "cars/getcarsdetails?id=" + carId;
+  //   return this.httpClient
+  //     .get<ListResponseModel<CarDetail>>(newPath);
+  // }
 }
