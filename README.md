@@ -3,7 +3,7 @@
   <img src="https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/main1.png" width="600" alt="main">
 </p>
 
-##About
+## About
 
 There are car rental project created with angular primeng and bootstrap. I created this for improve myself.
 
