@@ -2,7 +2,7 @@
 
 ## Images
 
-![IMG-1] (https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/home.jpg)
+![IMG-1](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/home.jpg)
 
 # CarRentalNg
 
