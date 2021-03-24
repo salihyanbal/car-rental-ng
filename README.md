@@ -5,15 +5,30 @@
 
 ## About
 
-There are car rental project created with angular primeng and bootstrap. I created this for improve myself.
+It is a car rental project that consist of <a href="https://github.com/salihyanbal/CarRentalProject" target="_blank" rel="nofollow">Rest api</a> on the backend and angular on the frontend. For the styling of the web site, primeng and bootstrap have been used. 
 
-Where does datas come from?
-
-I'm pulling datas from <a href="https://github.com/salihyanbal/CarRentalProject" target="_blank" rel="nofollow">car-rental backend</a>.
+I have been develop this project to improve myself. If you need detailed information do not hesitate to contact me.
 
 ## Images
 
 ![Home](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/home.jpg)
+
+![Cars](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/cars.jpg)
+
+![CarDetailAdmin](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/car-detail-admin-mode.jpg)
+
+![AdminCars](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/admin-cars.jpg)
+
+![AdminBrands](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/admin-brands.jpg)
+
+![AdminAddCar](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/admin-add-car.jpg)
+
+![AdminUpdateCar](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/admin-update-car.jpg)
+
+![AdminDeleteCar](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/admin-delete-car.jpg)
+
+![CarRent](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/car-rent-modal.jpg)
+
 
 # CarRentalNg
 
