@@ -1,3 +1,9 @@
+<h1 align="center">Car Rental System - Frontend Angular -</h1> 
+
+## Images
+
+![IMG-1](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/home.jpg)
+
 # CarRentalNg
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
