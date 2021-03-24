@@ -1,7 +1,7 @@
 <div *ngIf="!dataLoaded" class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
-<div style="margin-top: 20px;" *ngIf="dataLoaded">
+<div *ngIf="dataLoaded">
   <div class="mb-3">
     <input type="text" [(ngModel)]="filterCarText" class="form-control" id="filterColorText" 
     placeholder="Araba adı giriniz">

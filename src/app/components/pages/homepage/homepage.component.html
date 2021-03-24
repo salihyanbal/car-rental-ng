@@ -1,0 +1,55 @@
+<div id="card-bg" class="bg-primary-gradient rounded-3 shadow">
+  <img
+    src="/assets/images/tire-track.png"
+  />
+</div>
+
+<div class="container">
+  <div class="carousel align-middle">
+    <p-carousel [value]="cars" [numVisible]="3" [numScroll]="1">
+      <ng-template let-car pTemplate="item">
+        <div class="car-item">
+          <div class="car-item-content">
+            <div class="p-mb-3">
+              <img [src]="car.previewImagePath" [alt]=""
+                class="car-image" style="height: 120px; width: 160px; object-fit: fill;"/>
+            </div>
+            <div>
+              <h4 class="p-mb-1">{{car.brandName}} {{car.carName}}</h4>
+              <hr>
+              <h6 class="p-mt-0 p-mb-3">${{car.dailyPrice}}/gün</h6>
+              <span
+                [class]=""></span>
+              <div class="car-buttons p-mt-5">
+                <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search" routerLink="/cardetails/{{car.carId}}"></p-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+
+  <div style="margin-top: 250px;"></div>
+
+  <div class="cards align-bottom">
+    <div class="row row-cols-3 row-cols-md-3 g-2 justify-content-around">
+      <div class="text-center card card-info bg-light rounded-3 shadow align-items-center mx-3 m-lg-0 col" style="width: 18rem;">
+        <img src="assets/images/uygunfiyat.png">
+        <h5 class="fw-bold">Uygun fiyatlarla yolculuk yapmaya ne dersiniz?</h5>
+        <p class="w-70">Car-rental şirketimizin sizlere sunduğu geniş araba seçeneklerini
+          uygun fiyatlarla değerlendirmek istemez misiniz?</p>
+      </div>
+      <div class="text-center card card-info bg-light rounded-3 shadow align-items-center mx-3 m-lg-0 col" style="width: 18rem;">
+        <img src="assets/images/smileface.png">
+        <h5 class="fw-bold">Güler yüzlü hizmet!</h5>
+        <p class="w-70">:)</p>
+      </div>
+      <div class="text-center card card-info bg-light rounded-3 shadow align-items-center mx-3 m-lg-0 col" style="width: 18rem;">
+        <img src="assets/images/security.png">
+        <h5 class="fw-bold">Uygun sigorta ücretleri</h5>
+        <p class="w-70">Araba kiraladınız uygun fiyatlı sigorta mı arıyorsunuz? Evet o da bizde :)</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row col-lg-7 mx-auto card-body">
+        <div class="d-grid col">
+            <button type="button" (click)="change('details')" class="btn btn-secondary">Ayrıntılar</button>
+          </div>
+        <div class="d-grid col">
+            <button type="button" (click)="change('rents')" class="btn btn-dark">Kiralamalar</button>
+        </div>
+    </div>
+    <div>
+        <app-car-detail *ngIf="viewable=='details'"></app-car-detail>
+        <app-car-rents *ngIf="viewable=='rents'"></app-car-rents>
+    </div>
+</div>

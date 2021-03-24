@@ -1,0 +1,36 @@
+
+<div class="content d-flex justify-content-center">
+    <div class="row justify-content-md-center">
+        <div class="col-md-12">
+            <div class="p-fluid p-formgrid p-grid">
+                <form [formGroup]="carAddForm">
+                    <div class="mb-3" style="width: 12rem;">
+                        <p-dropdown id="selectBrand" formControlName="brand" [options]="brands" [(ngModel)]="selectedBrand" placeholder="Marka seç" optionLabel="name" [showClear]="true"></p-dropdown>
+                    </div>
+                    <div class="mb-3" style="width: 12rem;">
+                        <p-dropdown id="selectColor" formControlName="color" [options]="colors" [(ngModel)]="selectedColor" placeholder="Renk seç" optionLabel="name" [showClear]="true"></p-dropdown>
+                    </div>
+                    <div class="mb-3">
+                        <input id="carname" formControlName="carname" type="text" pInputText placeholder="Araba adı">
+                    </div>
+                    <div class="mb-3">
+                        <input id="modelyear" formControlName="modelYear" type="text" pInputText placeholder="Model yılı">
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <input id="dailyprice" formControlName="dailyPrice" type="text" pInputText placeholder="Günlük fiyat">   
+                            <span class="p-inputgroup-addon">₺</span>    
+                        </div> 
+                    </div>
+                    <div class="mb-3">
+                        <input id="description" formControlName="description" type="text" pInputText placeholder="Açıklama">
+                    </div>
+                </form>
+            </div>
+            <div class="card">
+                <button pButton pRipple type="button" icon="pi pi-plus" (click)="addCar()" label="Ekle" class="p-button-rounded p-button-info"></button>
+            </div>
+        </div>
+
+    </div>
+</div>

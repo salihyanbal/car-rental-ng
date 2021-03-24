@@ -2,8 +2,9 @@ export interface CarDetail{
     carId:number;
     brandName:string;
     carName:string;
-    description:string;
     colorName:string;
+    modelYear:number;
     dailyPrice:number;
+    description:string;
     previewImagePath:string;
 }

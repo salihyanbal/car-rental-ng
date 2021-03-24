@@ -1,0 +1,19 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Kiralama başlangıç tarihi</th>
+            <th scope="col">Kiralama bitiş tarihi</th>
+            <th scope="col">Geri getirme tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rental of rentals">
+            <th scope="row">#</th>
+            <td>{{rental.rentStartDate}}</td>
+            <td>{{rental.rentEndDate}}</td>
+            <td>{{rental.returnDate}}</td>
+        </tr>
+    </tbody>
+</table>
+

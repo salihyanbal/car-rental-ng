@@ -38,7 +38,7 @@ export class BrandComponent implements OnInit {
   }
 
   setCurrentBrand() {
-    this.router.navigate(['cars/'], { queryParams: { brandId: this.currentBrand.id }, queryParamsHandling: 'merge', relativeTo: this.route});
+    this.router.navigate([], { queryParams: { brandId: this.currentBrand.id }, queryParamsHandling: 'merge', relativeTo: this.route});
   }
 
   isCurrentBrand(brand: Brand) {
@@ -59,6 +59,6 @@ export class BrandComponent implements OnInit {
 
   clearCurrentBrand(){
     this.currentBrand = undefined;
-    this.router.navigate(['cars/'], { queryParams: { brandId: undefined }, queryParamsHandling: 'merge', relativeTo: this.route});
+    this.router.navigate([], { queryParams: { brandId: undefined }, queryParamsHandling: 'merge', relativeTo: this.route});
   }
 }

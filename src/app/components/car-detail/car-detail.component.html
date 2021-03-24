@@ -1,4 +1,8 @@
 <div class="col-lg-7 mx-auto">
+  <div *ngIf="isAdmin" class="row justify-content-center">
+      <p-button icon="pi pi-fw pi-cog" (click)="update(car)" styleClass="p-button-info p-button-sm" style="width: 3rem; margin-bottom: 3px;"></p-button>
+
+  </div>
   <div id="carImageSlide" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div
       class="carousel-inner d-flex"
@@ -62,7 +66,7 @@
         </tr>
         <tr>
           <th scope="row">Model Yılı</th>
-          <td></td>
+          <td>{{car.modelYear}}</td>
         </tr>
         <tr>
           <th scope="row">Aciklama</th>

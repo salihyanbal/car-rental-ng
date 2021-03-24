@@ -1,0 +1,57 @@
+<p-confirmDialog #cardelete header="Araba sil" icon="pi pi-exclamation-triangle" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="Iptal" (click)="cardelete.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Evet" (click)="cardelete.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+<p-table #cartable [columns]="cols" [value]="cars" sortMode="multiple" [paginator]="true" [globalFilterFields]="['carId','brandName','carName','colorName','modelYear','dailyPrice','description']" [rows]="5" >
+    <ng-template pTemplate="caption">
+        <div style="display: flex; justify-content: space-between;" class="table-header">
+            Arabalar
+            <span>
+                <i class="pi pi-search"></i>
+                <input style="margin-left: 10px;" pInputText type="text" (input)="cartable.filterGlobal($any($event.target).value, 'contains')" placeholder="Arama yap" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+            <th>
+                <p-button (click)="add()" icon="pi pi-fw pi-plus"></p-button>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-car let-columns="columns">
+        <tr>
+            <td>
+                {{car.carId}}
+            </td>
+            <td>
+                {{car.brandName}}
+            </td>
+            <td>
+                {{car.carName}}
+            </td>
+            <td>
+                {{car.colorName}}
+            </td>
+            <td>
+                {{car.modelYear}}
+            </td>
+            <td>
+                {{car.dailyPrice}}
+            </td>
+            <td>
+                {{car.description}}
+            </td>
+            <td>
+                <p-button icon="pi pi-fw pi-cog" (click)="update(car)"  styleClass="p-button-info p-button-sm"></p-button>
+                <p-button icon="pi pi-fw pi-trash" (click)="delete(car)" styleClass="p-button-danger p-button-sm"></p-button>
+                <p-button icon="pi pi-fw pi-info" styleClass="p-button-success p-button-sm" routerLink="/cardetails/{{car.carId}}"></p-button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

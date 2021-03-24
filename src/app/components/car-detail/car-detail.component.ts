@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DialogService } from 'primeng/dynamicdialog';
 import { CarDetail } from 'src/app/models/carDetail';
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+import { UpdateCarComponent } from '../update-components/update-car/update-car.component';
 
 @Component({
   selector: 'app-car-detail',
@@ -12,6 +14,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarDetailComponent implements OnInit {
 
+  isAdmin=true;
   carImages: CarImage[] = [];
   carImagePaths: string[] = [];
   car: CarDetail;
@@ -19,7 +22,8 @@ export class CarDetailComponent implements OnInit {
   imageUrl = "https://localhost:5001/";
   constructor(private carService: CarService,
     private carImageService: CarImageService, 
-    private activatedRoute:ActivatedRoute) {}
+    private activatedRoute:ActivatedRoute,
+    private dialogService: DialogService) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -29,7 +33,6 @@ export class CarDetailComponent implements OnInit {
       }
     })
   }
-
   getCarDetail(carId:number) {
     this.carService.getCarsDetails(undefined,undefined,carId).subscribe((response) => {
       this.car = response.data[0];
@@ -40,6 +43,16 @@ export class CarDetailComponent implements OnInit {
   getCarImages(carId:number){
     this.carImageService.getCarImageByCarId(carId).subscribe((response) => {
       this.carImages = response.data;
+    });
+  }
+
+  update(car:CarDetail){
+    const ref = this.dialogService.open(UpdateCarComponent, {
+      data: {
+        carDetail: car
+      },
+      header: 'Araba güncelle',
+      width: '20%'
     });
   }
 

@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-md-2" style="margin-top: 20px;">
+        <p-menu [model]="menuItems"></p-menu>
+    </div>
+    <div class="col-md-10" style="margin-top: 20px;">
+        <app-admin-cars *ngIf="currentApp=='cars'"></app-admin-cars>
+        <app-admin-colors *ngIf="currentApp=='colors'"></app-admin-colors>
+        <app-admin-brands *ngIf="currentApp=='brands'"></app-admin-brands>
+    </div>
+</div>

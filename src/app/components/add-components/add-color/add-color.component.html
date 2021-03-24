@@ -1,0 +1,17 @@
+
+<div class="content d-flex justify-content-center">
+    <div class="row justify-content-md-center">
+        <div class="col-md-12">
+            <div class="p-fluid p-formgrid p-grid">
+                <form [formGroup]="colorAddForm">
+                    <div class="mb-3">
+                        <input id="name" formControlName="name" type="text" pInputText placeholder="Renk adı">
+                    </div>
+                </form>
+            </div>
+            <div class="card">
+                <button pButton pRipple type="button" icon="pi pi-plus" (click)="addColor()" label="Ekle" class="p-button-rounded p-button-info"></button>
+            </div>
+        </div>
+    </div>
+</div>
