@@ -3,6 +3,14 @@
   <img src="https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/main1.png" width="600" alt="main">
 </p>
 
+##About
+
+There are car rental project created with angular primeng and bootstrap. I created this for improve myself.
+
+Where does datas come from?
+
+I'm pulling datas from <a href="https://github.com/salihyanbal/CarRentalProject" target="_blank" rel="nofollow">car-rental backend</a>.
+
 ## Images
 
 ![Home](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/home.jpg)
