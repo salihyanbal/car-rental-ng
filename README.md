@@ -1,8 +1,10 @@
-<h1 align="center">Car Rental System - Frontend Angular -</h1> 
+<h1 align="center">Car Rental System - Frontend Angular</h1> 
+
+![Main](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/main.png)
 
 ## Images
 
-![IMG-1](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/home.jpg)
+![Home](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/home.jpg)
 
 # CarRentalNg
 
