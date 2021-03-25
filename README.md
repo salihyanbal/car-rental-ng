@@ -7,7 +7,7 @@
 
 It is a car rental project that consist of <a href="https://github.com/salihyanbal/CarRentalProject" target="_blank" rel="nofollow">Rest api</a> on the backend and angular on the frontend. For the styling of the web site, primeng and bootstrap have been used. 
 
-I developed this project to improve myself. If you need detailed information do not hesitate to contact me.
+I have been developed this project to improve myself. If you need detailed information do not hesitate to contact me.
 
 ## Images
 
