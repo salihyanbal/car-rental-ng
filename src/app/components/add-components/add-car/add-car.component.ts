@@ -80,7 +80,6 @@ export class AddCarComponent implements OnInit {
           }
         }
       })
-      
     }else{
       this.toastrService.error("Formu doldurmanız gerekli","Hata")
     }

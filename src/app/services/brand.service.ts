@@ -34,7 +34,6 @@ export class BrandService {
 
   updateBrand(brand:Brand):Observable<ResponseModel>{
     let newPath = this.apiUrl + "brands/update"
-    console.log(brand)
     return this.httpClient
     .put<ResponseModel>(newPath,brand)
   }

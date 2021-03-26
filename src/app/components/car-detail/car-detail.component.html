@@ -1,8 +1,4 @@
 <div class="col-lg-7 mx-auto">
-  <div *ngIf="isAdmin" class="row justify-content-center">
-      <p-button icon="pi pi-fw pi-cog" (click)="update(car)" styleClass="p-button-info p-button-sm" style="width: 3rem; margin-bottom: 3px;"></p-button>
-
-  </div>
   <div id="carImageSlide" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div
       class="carousel-inner d-flex"
@@ -42,6 +38,10 @@
       </button>
     </div>
 
+    <div *ngIf="isAdmin" class="row justify-content-center">
+      <p-button icon="pi pi-fw pi-cog" (click)="update(car)" styleClass="p-button-info p-button-sm" style="width: 3rem; margin-top: 3px;"></p-button>
+    </div>
+
     <table *ngIf="car" class="table table-striped mt-2">
       <tbody>
         <tr>
@@ -75,7 +75,7 @@
       </tbody>
     </table>
     <div class="card-body d-grid gap-2 mx-auto">
-      <app-rental></app-rental>
+      <button [disabled]="!isLogged" type="button" (click)="rent()" pButton icon="pi pi-shopping-cart" class="p-button-info" label="Kirala"></button>
    </div>
   </div>
 </div>

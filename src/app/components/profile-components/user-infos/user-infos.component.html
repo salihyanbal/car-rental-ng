@@ -1,0 +1,100 @@
+<div class="row">
+        <p-card>
+            <div class="col mx-auto" style="margin-top: 20px;">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div>
+                                <p-card>
+                                    <div class="row justify-content-center">
+                                        <p-card class="profile-image">
+                                            <div class="row justify-content-center">
+                                                <img src="assets/images/default-user-logo.png" style="height: 50px; width: 70px;">
+                                            </div>
+                                            
+                                        </p-card>
+                                        <div>
+                                                <div class="row justify-content-center" style="margin-top: 15px;">
+                                                    <form [formGroup]="userForm">
+                                                        <div class="p-field p-md-2 p-grid">
+                                                            <span class="p-float-label p-col-fixed">
+                                                                <input formControlName="firstName" type="text" style="width:95%" id="input-first-name" pInputText>
+                                                                <label for="input-first-name">Ad</label>
+                                                            </span>
+                                                        </div>
+                                                        <div class="p-field p-md-2 p-grid" style="margin-top: 5px;">
+                                                            <span class="p-float-label p-col-fixed">
+                                                                <input formControlName="lastName" type="text" style="width:95%" id="input-last-name" pInputText>
+                                                                <label for="input-last-name">Soyad</label>
+                                                            </span>
+                                                        </div>
+                                                        <div class="p-field p-md-2 p-grid" style="margin-top: 5px;">
+                                                            <span class="p-float-label p-col-fixed">
+                                                                <input formControlName="email" type="text" style="width:95%" id="input-e-mail" pInputText>
+                                                                <label for="input-e-mail">E-posta</label>
+                                                            </span>
+                                                        </div>
+                                                    </form>
+                                                    <div class="row justify-content-center col-md-6">
+                                                        <button pButton pRipple type="button" label="Güncelle" (click)="updateUser()" class="p-button-rounded"></button>
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                                </p-card>
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <p-card>
+                                    <div class="row justify-content-center">
+                                        <form [formGroup]="customerForm">
+                                            <div class="p-field p-md-2 p-grid" style="margin-top: 5px;">
+                                                <span class="p-float-label p-col-fixed">
+                                                    <input formControlName="phoneNumber" type="text" style="width:95%" id="input-tel" pInputText>
+                                                    <label for="input-tel">Telefon</label>
+                                                </span>
+                                            </div>
+
+                                            <div class="p-field p-md-2 p-grid" style="margin-top: 5px;">
+                                                <span class="p-float-label">
+                                                    <textarea formControlName="address" [rows]="4" style="width: 95%;" pInputTextarea [autoResize]="true"></textarea>
+                                                    <label for="input-address">Adres</label>
+                                                </span>
+                                            </div>
+                                        </form>
+                                        <div class="row justify-content-center col-md-6">
+                                            <button pButton pRipple type="button" label="Güncelle" (click)="updateCustomer()" class="p-button-rounded"></button>
+                                        </div>
+                                    </div>
+                                </p-card>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div *ngIf="customer">
+                                <p-card>
+                                    <div class="col-md-12">
+                                        <div class="d-flex justify-content-center">
+                                            <span class="p-float-label p-col-fixed">
+                                                <input type="text" style="width:95%" disabled [(ngModel)]="customer.findeksScore" id="disabled-findeks" pInputText>
+                                                <label for="input-tel">Findeks Puanı</label>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </p-card>
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <p-card>
+                                    <div class="col-md-12">
+                                        <div class="d-flex justify-content-center">
+                                            <button pButton pRipple type="button" label="Parola güncelle" (click)="updatePassword()" class="p-button-rounded"></button>
+                                        </div>
+                                    </div>
+                                </p-card>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </p-card>
+</div>

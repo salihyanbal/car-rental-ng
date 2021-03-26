@@ -5,7 +5,7 @@
             <div class="p-fluid p-formgrid p-grid">
                 <form [formGroup]="carUpdateForm">
                     <div class="mb-3">
-                        <input id="disabled-input" [disabled]=true formControlName="id" type="text" pInputText/>
+                        <input id="disabled-input" formControlName="id" type="text" pInputText/>
                     </div>
                     <div class="mb-3" style="width: 12rem;">
                         <p-dropdown id="selectBrand" formControlName="brand" [options]="brands" placeholder="Marka seç" optionLabel="name" [showClear]="true"></p-dropdown>

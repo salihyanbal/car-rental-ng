@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { FakeCard } from '../models/fakeCard';
 import { ListResponseModel } from '../models/listResponseModel';
 import { ResponseModel } from '../models/responseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,6 @@ export class FakecardService {
 
   isCardExist(fakeCard:FakeCard):Observable<ResponseModel>{
     let newPath = this.apiUrl + "fakecards/iscardexist"
-    console.log("pepepe")
     return this.httpClient.post<ResponseModel>(newPath,fakeCard);
   }
 
@@ -25,8 +25,13 @@ export class FakecardService {
     return this.httpClient.get<ListResponseModel<FakeCard>>(newPath);
   }
 
-  updateCard(fakeCard:FakeCard){
+  getCardById(id:number):Observable<SingleResponseModel<FakeCard>>{
+    let newPath = this.apiUrl + "fakecards/getbyid?id=" + id
+    return this.httpClient.get<SingleResponseModel<FakeCard>>(newPath);
+  }
+
+  updateCard(fakeCard:FakeCard):Observable<ResponseModel>{
     let newPath = this.apiUrl + "fakecards/update"
-    this.httpClient.put(newPath,fakeCard)
+    return this.httpClient.put<ResponseModel>(newPath,fakeCard)
   }
 }

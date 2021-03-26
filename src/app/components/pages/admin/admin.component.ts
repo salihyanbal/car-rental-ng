@@ -13,6 +13,10 @@ export class AdminComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.createMenuItems()
+  }
+
+  createMenuItems(){
     this.menuItems = [
       {label: 'Arabalar', icon: 'pi pi-fw pi-list', command: () => {
         this.currentApp = "cars";

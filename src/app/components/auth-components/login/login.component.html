@@ -1,0 +1,27 @@
+<div class="content d-flex justify-content-center">
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="row justify-content-md-center">
+                    <img src="assets/images/black-logo.png" style="width: 70%">
+                </div>
+
+                <form [formGroup]="loginForm">
+                    <div class="p-field p-md-3 p-grid">
+                        <span class="p-float-label p-col-fixed">
+                            <input formControlName="email" type="text" id="input-mail" pInputText> 
+                            <label for="input-mail">E-posta</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-md-3 p-grid">
+                        <span class="p-float-label p-col-fixed">
+                            <input formControlName="password" type="password" id="input-password" pInputText> 
+                            <label for="input-password">Parola</label>
+                        </span>
+                    </div>
+                </form>
+                <button pButton pRipple type="button" (click)="login()" icon="pi pi-sign-in" label="Giriş yap" class="p-button-rounded p-button-success"></button>
+            </div>
+        </div>
+    </div>
+</div>

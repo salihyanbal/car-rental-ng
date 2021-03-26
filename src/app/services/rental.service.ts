@@ -5,6 +5,9 @@ import { ListResponseModel } from '../models/listResponseModel';
 import { RentalDetail } from '../models/rentalDetail';
 import { Rental } from '../models/rental';
 import { ResponseModel } from '../models/responseModel';
+import { Customer } from '../models/customer';
+import { CustomerService } from './customer.service';
+import { Car } from '../models/car';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +16,9 @@ export class RentalService {
 
   apiUrl = 'https://localhost:5001/api/';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+    private customerService: CustomerService) { }
 
   getAllRentalDetail():Observable<ListResponseModel<RentalDetail>> {
     let newPath = this.apiUrl + "rentals/getallrentaldetails"

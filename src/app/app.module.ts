@@ -10,6 +10,9 @@ import { MenuModule } from 'primeng/menu';
 import { TableModule } from 'primeng/table';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DropdownModule } from 'primeng/dropdown';
+import { PasswordModule } from 'primeng/password';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +21,7 @@ import { ColorComponent } from './components/color/color.component';
 import { CarComponent } from './components/car/car.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrandFilterPipe } from './pipes/brand-filter.pipe';
@@ -46,6 +49,12 @@ import { AddColorComponent } from './components/add-components/add-color/add-col
 import { AddBrandComponent } from './components/add-components/add-brand/add-brand.component';
 import { UpdateBrandComponent } from './components/update-components/update-brand/update-brand.component';
 import { UpdateColorComponent } from './components/update-components/update-color/update-color.component';
+import { LoginComponent } from './components/auth-components/login/login.component';
+import { RegisterComponent } from './components/auth-components/register/register.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { UserInfosComponent } from './components/profile-components/user-infos/user-infos.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
+import { ChangePasswordComponent } from './components/profile-components/change-password/change-password.component';
 
 
 
@@ -78,6 +87,11 @@ import { UpdateColorComponent } from './components/update-components/update-colo
     AddBrandComponent,
     UpdateBrandComponent,
     UpdateColorComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserInfosComponent,
+    ProfileComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,9 +112,13 @@ import { UpdateColorComponent } from './components/update-components/update-colo
     TableModule,
     ConfirmDialogModule,
     DropdownModule,
-    DynamicDialogModule
+    DynamicDialogModule,
+    PasswordModule,
+    InputTextModule,
+    InputTextareaModule
   ],
   providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
     DatePipe,
     ConfirmationService,
     DialogService

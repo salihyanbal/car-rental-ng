@@ -41,6 +41,7 @@ export class AddBrandComponent implements OnInit {
           location.reload()
         },400)
       },responseError=>{
+        console.log(responseError)
         if(responseError.error.ValidationErrors.length>0){
           for(let i = 0;i < responseError.error.ValidationErrors.length;i++){
             this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage,"Doğrulama hatası")

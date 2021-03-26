@@ -17,7 +17,8 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-dark">
-          <li><p-splitButton [showTransitionOptions]="'50ms'" [hideTransitionOptions]="'50ms'" label="" icon="pi pi-user" [model]="userItems" styleClass="p-button-info"></p-splitButton></li>
+          <li *ngIf="userLogged"><p-splitButton [showTransitionOptions]="'50ms'" [hideTransitionOptions]="'50ms'" label="{{userName}}" icon="pi pi-user" [model]="userItems" styleClass="p-button-info"></p-splitButton></li>
+          <li *ngIf="!userLogged"><p-splitButton [showTransitionOptions]="'50ms'" [hideTransitionOptions]="'50ms'" label="" icon="pi pi-user" [model]="userItems" styleClass="p-button-info"></p-splitButton></li>
         </ul>
       </div>
     </div>

@@ -3,10 +3,14 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { DialogService, DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { CarDetail } from 'src/app/models/carDetail';
 import { Rental } from 'src/app/models/rental';
+import { AuthService } from 'src/app/services/auth.service';
 import { CarService } from 'src/app/services/car.service';
+import { FindeksService } from 'src/app/services/findeks.service';
 import { RentalService } from 'src/app/services/rental.service';
+import { CreditCardComponent } from '../creditcard/creditcard.component';
 
 @Component({
   selector: 'app-rental',
@@ -27,22 +31,22 @@ export class RentalComponent implements OnInit {
   constructor(
     private rentalService:RentalService,
     private carService:CarService,
-    private activatedRoute:ActivatedRoute,
     private router:Router,
     private toastrService:ToastrService,
-    private datePipe:DatePipe) { }
+    private datePipe:DatePipe,
+    private authService:AuthService,
+    private findeksService:FindeksService,
+    private config: DynamicDialogConfig,
+    private dialogService:DialogService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params=>{
-      if(params["carId"]){
-        this.getCarsDetail(params["carId"])
-      }
-    })
+    this.getCarsDetail()
     this.minDate=this.datePipe.transform(new Date(),"yyyy-MM-dd");
     this.maxDate=this.datePipe.transform(new Date(new Date().setFullYear(new Date().getFullYear() + 1)),"yyyy-MM-dd");
   }
 
-  getCarsDetail(carId:number) {
+  getCarsDetail() {
+    let carId = this.config.data.carId
     this.carService.getCarsDetails(undefined,undefined,carId).subscribe((response) => {
       this.car = response.data[0];
     });
@@ -51,9 +55,15 @@ export class RentalComponent implements OnInit {
   async addRental(){
     this.rentable = (await this.setRentable())
     if(this.rentable){
-      this.rental = this.rental;
-      this.router.navigate(['/creditcard/', JSON.stringify(this.rental)]);
-      this.toastrService.info("Kredi kartı ödeme sayfasına yönlendiriliyor","Yönlendiriliyor")
+      let currentUserId = this.authService.getCurrentUserId()
+      if(await this.findeksService.isCustomerFindexEnough(currentUserId,this.car.carId)){
+        this.rental = this.rental;
+        this.rental.userId = this.authService.getCurrentUserId()
+        this.openCreditCard()
+      }
+      else{
+        this.toastrService.error("Findeks puanınız yeterli değil","Hata")
+      }
     }else{
       this.toastrService.error("Bu tarihler arasında araba zaten kiralanmış","Hata")
     }
@@ -61,8 +71,18 @@ export class RentalComponent implements OnInit {
 
   async setRentable(){
     this.rental = {carId:this.car.carId,rentStartDate:this.startDate,rentEndDate:this.endDate,totalRentPrice:this.calculatePrice()};
-    console.log(this.rental)
     return (await this.rentalService.isRentable(this.rental).toPromise()).success
+  }
+
+  openCreditCard(){
+    const ref = this.dialogService.open(CreditCardComponent, {
+      data:{
+        rental: this.rental
+      },
+      header: 'Choose a Car',
+      width: '20%'
+    });
+    this.toastrService.info("Kredi kartı ödeme sayfasına yönlendiriliyor","Yönlendiriliyor")
   }
 
   calculatePrice():number{
