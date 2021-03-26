@@ -1,10 +1,34 @@
 <h1 align="center">Car Rental System - Frontend Angular</h1> 
+<p align="center">
+  <img src="https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/main1.png" width="600" alt="main">
+</p>
 
-![Main](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/main.png)
+## About
+
+It is a car rental project that consist of <a href="https://github.com/salihyanbal/CarRentalProject" target="_blank" rel="nofollow">Rest api</a> on the backend and angular on the frontend. For the styling of the web site, primeng and bootstrap have been used. 
+
+I have been developed this project to improve myself. If you need detailed information do not hesitate to contact me.
 
 ## Images
 
 ![Home](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/home.jpg)
+
+![Cars](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/cars.jpg)
+
+![CarDetailAdmin](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/car-detail-admin-mode.jpg)
+
+![AdminCars](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/admin-cars.jpg)
+
+![AdminBrands](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/admin-brands.jpg)
+
+![AdminAddCar](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/admin-add-car.jpg)
+
+![AdminUpdateCar](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/admin-update-car.jpg)
+
+![AdminDeleteCar](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/admin-delete-car.jpg)
+
+![CarRent](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/car-rent-modal.jpg)
+
 
 # CarRentalNg
 
