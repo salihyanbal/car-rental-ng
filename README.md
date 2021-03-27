@@ -13,6 +13,10 @@ I have been developed this project to improve myself. If you need detailed infor
 
 ![Home](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/home.jpg)
 
+![Register](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/register-form.jpg)
+
+![Login](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/login-form.jpg)
+
 ![Cars](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/cars.jpg)
 
 ![CarDetailAdmin](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/car-detail-admin-mode.jpg)
@@ -28,6 +32,12 @@ I have been developed this project to improve myself. If you need detailed infor
 ![AdminDeleteCar](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/admin-delete-car.jpg)
 
 ![CarRent](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/car-rent-modal.jpg)
+
+![Profile](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/user-profile.jpg)
+
+![AutoFilledCards](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/auto-filled-cards.jpg)
+
+![Filled](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/filled.jpg)
 
 
 # CarRentalNg
