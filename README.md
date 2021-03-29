@@ -13,9 +13,9 @@ I have been developed this project to improve myself. If you need detailed infor
 
 ![Home](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/home.jpg)
 
-![Register](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/register-form.jpg)
+![Register](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/registerform.jpg)
 
-![Login](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/login-form.jpg)
+![Login](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/loginform.jpg)
 
 ![Cars](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/cars.jpg)
 
@@ -33,7 +33,7 @@ I have been developed this project to improve myself. If you need detailed infor
 
 ![CarRent](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/car-rent-modal.jpg)
 
-![Profile](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/user-profile.jpg)
+![Profile](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/profile-user.jpg)
 
 ![AutoFilledCards](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/auto-filled-cards.jpg)
 
