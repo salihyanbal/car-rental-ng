@@ -5,7 +5,7 @@
             <div class="p-fluid p-formgrid p-grid">
                 <form [formGroup]="carUpdateForm">
                     <div class="mb-3">
-                        <input id="disabled-input" formControlName="id" type="text" pInputText/>
+                        <input id="disabled-input" formControlName="id" type="number" pInputText/>
                     </div>
                     <div class="mb-3" style="width: 12rem;">
                         <p-dropdown id="selectBrand" formControlName="brand" [options]="brands" placeholder="Marka seç" optionLabel="name" [showClear]="true"></p-dropdown>
@@ -17,11 +17,11 @@
                         <input id="carname" formControlName="carname" type="text" pInputText placeholder="Araba adı">
                     </div>
                     <div class="mb-3">
-                        <input id="modelyear" formControlName="modelYear" type="text" pInputText placeholder="Model yılı">
+                        <input id="modelyear" formControlName="modelYear" type="number" pInputText placeholder="Model yılı">
                     </div>
                     <div class="mb-3">
                         <div class="input-group">
-                            <input id="dailyprice" formControlName="dailyPrice" type="text" pInputText placeholder="Günlük fiyat">   
+                            <input id="dailyprice" formControlName="dailyPrice" type="number" pInputText placeholder="Günlük fiyat">   
                             <span class="p-inputgroup-addon">₺</span>    
                         </div> 
                     </div>

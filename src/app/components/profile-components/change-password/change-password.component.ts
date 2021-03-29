@@ -16,7 +16,6 @@ export class ChangePasswordComponent implements OnInit {
   passwordUpdateForm: FormGroup;
   constructor(
     private formBuilder:FormBuilder,
-    private config: DynamicDialogConfig,
     private toastrService: ToastrService,
     private authService: AuthService
   ) { }

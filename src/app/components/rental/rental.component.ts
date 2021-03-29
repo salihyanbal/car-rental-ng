@@ -100,7 +100,7 @@ export class RentalComponent implements OnInit {
         return result
       }
     }
-    this.toastrService.info("Bu tarihler arasında arabayı kiralayamazsınız","!")
+    this.toastrService.error("Bu tarihler arasında arabayı kiralayamazsınız","Hata")
     return 0
   }
 

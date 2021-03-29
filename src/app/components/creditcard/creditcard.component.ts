@@ -148,8 +148,4 @@ export class CreditCardComponent implements OnInit  {
       this.selectedCard
     )
   }
-
-  updatePassword(){
-    
-  }
 }

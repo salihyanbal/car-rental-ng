@@ -74,9 +74,6 @@ export class UpdateCarComponent implements OnInit {
       this.carUpdateForm.addControl("brandId",new FormControl(this.carUpdateForm.get("brand").value.id, Validators.required))
       this.carUpdateForm.addControl("colorId",new FormControl(this.carUpdateForm.get("color").value.id, Validators.required))
       let carModel:Car = Object.assign({},this.carUpdateForm.getRawValue())
-      carModel.id = Number(carModel.id)
-      carModel.dailyPrice = Number(carModel.dailyPrice)
-      carModel.modelYear = Number(carModel.modelYear)
       this.carService.updateCar(carModel).subscribe(response=>{
         this.toastrService.success(response.message,"Başarılı")
         setTimeout(function(){
