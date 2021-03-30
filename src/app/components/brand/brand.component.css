@@ -1,0 +1,8 @@
+:host ::ng-deep  .p-multiselect-chip{
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+:host ::ng-deep .p-multiselect-filter{
+    height: 2rem !important;
+}

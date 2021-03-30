@@ -13,6 +13,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -115,7 +116,8 @@ import { ChangePasswordComponent } from './components/profile-components/change-
     DynamicDialogModule,
     PasswordModule,
     InputTextModule,
-    InputTextareaModule
+    InputTextareaModule,
+    MultiSelectModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},

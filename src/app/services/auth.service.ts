@@ -7,7 +7,6 @@ import { RegisterModel } from '../models/registerModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import jwt_decode from 'jwt-decode';
 import { LocalStorageService } from './local-storage.service';
 import { ListResponseModel } from '../models/listResponseModel';
 import { ToastrService } from 'ngx-toastr';

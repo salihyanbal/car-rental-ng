@@ -9,9 +9,8 @@ import { Location } from '@angular/common'
   styleUrls: ['./brand.component.css'],
 })
 export class BrandComponent implements OnInit {
-  filterBrandText: string;
   brands: Brand[] = [];
-  currentBrand?: Brand;
+  selectedBrands?: Brand[];
   dataLoaded = false;
   constructor(
     private brandService: BrandService,
@@ -29,36 +28,9 @@ export class BrandComponent implements OnInit {
     });
   }
 
-  setQueryParams(brand:Brand){
-    if(brand){
-      this.setCurrentBrand()
-    }else{
-      this.clearCurrentBrand()
-    }
-  }
-
   setCurrentBrand() {
-    this.router.navigate([], { queryParams: { brandId: this.currentBrand.id }, queryParamsHandling: 'merge', relativeTo: this.route});
+    let brands = this.selectedBrands.map(b => b.id)
+    this.router.navigate([], { queryParams: { brands }, queryParamsHandling: 'merge', relativeTo: this.route});
   }
 
-  isCurrentBrand(brand: Brand) {
-    if (brand == this.currentBrand) {
-      return true
-    } else {
-      return false
-    }
-  }
-
-  isAllBrandSelected(){
-    if(!this.currentBrand){
-      return true;
-    }else{
-      return false;
-    }
-  }
-
-  clearCurrentBrand(){
-    this.currentBrand = undefined;
-    this.router.navigate([], { queryParams: { brandId: undefined }, queryParamsHandling: 'merge', relativeTo: this.route});
-  }
 }

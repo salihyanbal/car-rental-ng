@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { CarDetail } from '../models/carDetail';
@@ -22,19 +22,19 @@ export class CarService {
     .get<SingleResponseModel<Car>>(newPath)
   }
 
-  getCarsDetails(brandId?:number,colorId?:number,carId?:number):Observable<ListResponseModel<CarDetail>> {
-    let newPath = this.apiUrl + "cars/getcarsdetails?"
-    if(brandId){
-      newPath += "brandid=" + brandId + "&"
-    }
-    if(colorId){
-      newPath += "colorid=" + colorId + "&"
-    }
-    if(carId){
-      newPath += "id=" + carId + "&"
-    }
+  getCarsDetails(brands?:number[],colors?:number[],carId?:number):Observable<ListResponseModel<CarDetail>> {
+    let newPath = this.apiUrl + "cars/getcarsdetails"
+    let queryParams = new HttpParams()
+    brands?.forEach(element => {
+      let brand = String(element)
+      queryParams = queryParams.append("brandid",brand)
+    });
+    colors?.forEach(element => {
+      let color = String(element)
+      queryParams = queryParams.append("colorid",color)
+    })
     return this.httpClient
-      .get<ListResponseModel<CarDetail>>(newPath);
+      .get<ListResponseModel<CarDetail>>(newPath, {params: queryParams});
   }
 
   addCar(car:Car):Observable<ResponseModel>{

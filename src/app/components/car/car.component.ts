@@ -23,13 +23,13 @@ export class CarComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params=>{
-      this.getCarsDetails(params["brandId"],params["colorId"])
+      this.getCarsDetails(params["brands"],params["colors"])
     })
   }
 
 
-  getCarsDetails(brandId:number,colorId:number) {
-    this.carService.getCarsDetails(brandId, colorId).subscribe((response) => {
+  getCarsDetails(brands:number[],colors:number[]) {
+    this.carService.getCarsDetails(brands, colors).subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
       this.setPreviewImages(this.cars)
