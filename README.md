@@ -17,7 +17,7 @@ I have been developed this project to improve myself. If you need detailed infor
 
 ![Login](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/loginform.jpg)
 
-![Cars](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/cars.jpg)
+![CarsW/MultipleSelection](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/multiple-selection-filter.jpg)
 
 ![CarDetailAdmin](https://github.com/salihyanbal/car-rental-ng/blob/master/readme-images/car-detail-admin-mode.jpg)
 
